@@ -23,3 +23,15 @@ for (i <- 1 to 3; from = 4 - i; j <- from to 3)
 // For comprehension in which the body of the for loop begins with yield, construction a collection of values, one for each iteration
 println("For comprehension in which the body of the for loop begins with yield, construction a collection of values, one for each iteration")
 for (i <- 1 to 10) yield i % 3
+
+// Using for comprehension with generators
+for (c <- "Hello"; i <- 0 to 1) yield (c + i).toChar // yields "HIeflmlmop"
+
+for (i <- 0 to 1; c <- "Hello") yield (c + i).toChar // yields Vector('H', 'e', 'l', 'l', 'o', 'I', 'f', 'm', 'm', 'p')
+
+// Enclosing generators, guards, and definitions for loops in braces and separating them with semi-colons
+for {
+    i <- 1 to 3
+    from = 4 - i
+    j <- from to 3
+}
